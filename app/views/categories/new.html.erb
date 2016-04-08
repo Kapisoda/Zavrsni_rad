@@ -1,0 +1,12 @@
+
+
+
+<% if user_signed_in? %>
+
+    <%= simple_form_for(@category, html: { class: 'form-a' }) do |f| %>
+
+        <%= f.input :name %>
+        <%= f.button :submit %>
+    <% end %>
+
+<% end %>

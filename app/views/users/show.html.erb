@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h3 class="post-subtitle">
+      <p>Svi postovi korisnika <%= @user.name %></p>
+        </h3>
+      <% @posts.each do |p| %>
+          <div class="post-preview">
+            <a href="post.html">
+              <h2 class="post-title">
+
+                <%= link_to p.title, posts_show_path(p.id) %>
+              </h2>
+              <h3 class="post-subtitle">
+
+                <% p.categories.each do |c| %>
+                <%= link_to c.name, category_path(c.id) %>
+                    <% end %>
+              </h3>
+            </a>
+            <p class="post-meta">Posted by <a href="#"><%= p.user.name %> </a><%= p.created_at %></p>
+          </div>
+          <hr>
+
+      <%end%>
+      <!-- Pager -->
+
+    </div>
+  </div>
+</div>

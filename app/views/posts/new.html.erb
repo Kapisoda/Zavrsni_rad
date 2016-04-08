@@ -1,0 +1,23 @@
+
+<div class="container" style="margin-top: 25px">
+<% if user_signed_in? %>
+
+    <%= simple_form_for @post, html: {class: 'form-horizontal', multipart: true} do |f| %>
+
+        <%= f.label "Naslov" %>
+        <%= f.input :title,label: false  %>
+
+        <%= f.label "Tekst" %>
+        <%= f.input :body ,label: false%>
+
+        <%= f.label "Kategorije" %>
+        <%= f.association :categories, label: false, collection: Category.all, multiple: true, :include_blank => true,:input_html => {class: 'chosen-select'} %>
+
+        <%= f.input :user_id, :as => :hidden , input_html: {value: @user.id} %>
+        <%= f.button :submit %>
+
+    <% end %>
+
+<% end %>
+  </div>
+
