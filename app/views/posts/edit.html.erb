@@ -11,7 +11,11 @@
           <%= f.label "Kategorije" %>
           <%= f.association :categories, label: false, collection: Category.all, multiple: true, :include_blank => true,:input_html => {class: 'chosen-select'} %>
 
-        <%= f.button :submit %>
+          <%= f.label "Slika" %>
+          <%= f.input :image, type: :file, label: false %>
+
+
+        <%= f.button :submit, "Edit", class: "btn btn-success" %>
 
     <% end %>
 

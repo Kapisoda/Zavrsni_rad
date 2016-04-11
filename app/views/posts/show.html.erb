@@ -1,28 +1,35 @@
 
-
+<div class="container">
 <% if flash[:notice] %>
     <div class="alert alert-success">
       <strong> <p class="notice"><%= notice %></p></strong>
     </div>
 <% end %>
 
-<div class="container">
+
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
           <div class="post-preview">
-            <a href="post.html">
+
+
+
               <h2 class="post-title">
 
                 <%=  @post.title %>
               </h2>
-              <h3 class="post-subtitle">
+              <% if @post.image != nil %>
+                <%= image_tag( @post.image.url(:medium)) %>
+              <% else %>
+                  <p>NEMA SLIKE!</p>
+              <% end %>
+                  <h3 class="post-subtitle">
 
                 <% @post.categories.each do |c| %>
                 <%= link_to c.name, category_path(c.id) %>
                     <% end %>
               </h3>
-            </a>
+
             <%=  @post.body %>
 
             <p class="post-meta">Posted by <a href="#"><%=link_to @post.user.name, user_path(@post.user.id) %> </a><%= @post.created_at %></p>
@@ -46,7 +53,7 @@
                  <%= f.input :post_id, :as => :hidden ,input_html: { value: @post.id} %>
 
 
-              <%= f.button :submit %>
+              <%= f.button :submit, "Komentiraj", class: "btn btn-success" %>
 
           <% end %>
 

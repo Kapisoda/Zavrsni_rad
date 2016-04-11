@@ -13,8 +13,12 @@
         <%= f.label "Kategorije" %>
         <%= f.association :categories, label: false, collection: Category.all, multiple: true, :include_blank => true,:input_html => {class: 'chosen-select'} %>
 
+          <%= f.label "Slika" %>
+          <%= f.input :image, as: :file, label: false %>
+
+
         <%= f.input :user_id, :as => :hidden , input_html: {value: @user.id} %>
-        <%= f.button :submit %>
+        <%= f.button :submit, "Izradi post", class: "btn btn-success"  %>
 
     <% end %>
 

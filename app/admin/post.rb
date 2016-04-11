@@ -16,7 +16,6 @@ ActiveAdmin.register Post do
   index do
     column :id
     column :title, :sortable => :title
-    column :category, :sortable => :category
     column :created_at, :sortable => :created_at
     actions
   end
@@ -28,7 +27,7 @@ ActiveAdmin.register Post do
       f.input :title, :label => "Title"
       f.input :body, :label => "Body"
       f.input :user, :label => "User"
-      f.input :category, :label => "Category"
+      f.input :categories, :label => "Category"
       f.actions
     end
   end

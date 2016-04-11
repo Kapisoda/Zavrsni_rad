@@ -59,6 +59,8 @@ gem 'font-awesome-rails'
 
 gem 'autoprefixer-rails'
 
+gem 'paperclip', "~> 4.3"
+
 
 
 
