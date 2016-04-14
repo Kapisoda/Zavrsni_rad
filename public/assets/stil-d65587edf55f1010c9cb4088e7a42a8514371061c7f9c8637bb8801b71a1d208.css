@@ -4,6 +4,9 @@
     border-style: groove;
     border-radius: 5px;
     height: 415px;
+    width: 86%;
+    box-shadow: 5px 5px 2px #888888;
+    font-family: Impact, Charcoal, sans-serif;
 
 }
 .gumb {
@@ -11,4 +14,7 @@
     bottom: 5px;
     width: 100%;
     margin:0;
+}
+.flash {
+    margin-top: 40px;
 }

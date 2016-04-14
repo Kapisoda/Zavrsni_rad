@@ -4,6 +4,9 @@
     border-style: groove;
     border-radius: 5px;
     height: 415px;
+    width: 86%;
+    box-shadow: 5px 5px 2px #888888;
+    font-family: Impact, Charcoal, sans-serif;
 
 }
 .gumb {
@@ -11,6 +14,9 @@
     bottom: 5px;
     width: 100%;
     margin:0;
+}
+.flash {
+    margin-top: 40px;
 }
 /* @group Base */
 /* line 9, C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/chosen-rails-1.4.3/vendor/assets/stylesheets/chosen.scss */
