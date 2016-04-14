@@ -8,11 +8,15 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
+  host: sql7.freemysqlhosting.net
+  database: sql7115198
+  username: sql7115198
+  password: GaIQSqhPZ8
 
 development:
   <<: *default
   adapter: mysql2
-  database: bloging_development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,7 +24,7 @@ development:
 test:
   <<: *default
   adapter: mysql2
-  database: bloging_test
+
 
 production:
   <<: *default

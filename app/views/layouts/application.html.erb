@@ -49,7 +49,7 @@
         <li class="<%= params[:controller]== 'posts' && params[:action] == 'new' ? 'active' : '' %>"><% if user_signed_in? %> <%= link_to "Novi post", posts_new_path, method: :get %>   <% end %></li>
         <li class="<%= params[:controller]== 'categories' && params[:action] == 'new' ? 'active' : '' %>"><% if user_signed_in? %> <%= link_to "Nova kategorija", categories_new_path %>   <% end %></li>
         <li class="<%= params[:controller]== 'users' && params[:action] == 'index' ? 'active' : '' %>">  <% if user_signed_in? %> <%= link_to "Moje objave", users_path %>   <% end %></li>
-        
+
         <% if user_signed_in? == false %>
             <li class="<%= params[:controller]== 'users' && params[:action] == 'sign_in' ? 'active' : '' %>"> <%= link_to 'Sign in', new_user_session_path %> </li>
         <% end %>

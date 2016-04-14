@@ -7,6 +7,8 @@
 <% end %>
 
 
+
+
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
@@ -18,11 +20,14 @@
 
                 <%=  @post.title %>
               </h2>
-              <% if @post.image != nil %>
+              <% if @post.image_file_name != nil %>
                 <%= image_tag( @post.image.url(:medium)) %>
               <% else %>
-                  <p>NEMA SLIKE!</p>
+                <%= image_tag( "Nema_slike2.jpg")%>
               <% end %>
+            <h3 class="post-subtitle">
+              <%= @post.subtitle %>
+              </h3>
                   <h3 class="post-subtitle">
 
                 <% @post.categories.each do |c| %>

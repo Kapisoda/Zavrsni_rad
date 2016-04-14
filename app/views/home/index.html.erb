@@ -32,12 +32,14 @@
 
 
   <div class="container">
+    <div class="flash">
 <% if flash[:notice] %>
 <div class="alert alert-success">
   <strong> <p class="notice"><%= notice %></p></strong>
 </div>
 <% end %>
     </div>
+  </div>
 
 
 
@@ -45,39 +47,43 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+
       <% @posts.order("created_at desc").each do |p| %>
 
-          <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-
-            <%= link_to p.title, posts_show_path(p.id) %>
-          </h2>
-          <h3 class="post-subtitle">
-
-
-
-            <%  p.categories.each do |c| %>
+        <div class="col-md-4 col-xs-8 ">
+      <div class="card card1" >
+        <% if p.image_file_name != nil %>
+          <%= image_tag( p.image.url(:medium), class: 'card-img-top', alt: 'Card image cap') %>
+        <% else %>
+          <%= image_tag("Nema_slike3.png") %>
+        <% end %>
+        <div class="card-block">
+          <h4 class="card-title"><%= link_to p.title, posts_show_path(p.id) %></h4>
+          <p class="card-text"><%  p.categories.each do |c| %>
                 <%= link_to c.name, category_path(c.id) %>
-            <% end %>
+            <% end %></p>
+          <p class="card-text"> <%= p.subtitle %></p>
+          <p class="card-text"><%= link_to p.user.name, user_path(p.user.id)  %> <%= p.created_at %></p>
 
-
-
-
-          </h3>
-        </a>
-        <p class="post-meta">Posted by <a href="#"><%= link_to p.user.name, user_path(p.user.id)  %> </a><%= p.created_at %></p>
+          <div class="gumb">
+          <%= button_to "Više", posts_show_path(p.id), class: "btn-lg btn-primary" , :method => :get, form: {style: 'display:inline-block;'} %>
+            </div>
+        </div>
       </div>
-      <hr>
 
-          <%end%>
-      <%= paginate @posts %>
+        </div>
+      <% end %>
+
+
+
+
 
       <!-- Pager -->
 
-    </div>
+
   </div>
+  <%= paginate @posts %>
 </div>
 
 
